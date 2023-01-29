@@ -28,9 +28,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/head.js",
-    "app/layout.js",
-    "app/page.js",
+    "app/head.tsx",
+    "app/layout.tsx",
+    "app/page.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
