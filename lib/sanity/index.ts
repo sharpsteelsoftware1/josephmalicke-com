@@ -1,4 +1,5 @@
 import client from "@sanity/client";
+import { blogs } from "./types/Blog";
 import { pictures } from "./types/Picture";
 import { siteConfig } from "./types/SiteConfig";
 
@@ -11,8 +12,10 @@ const sanityClient = client({
 });
 
 const sanityApi = {
+  blogs: blogs(sanityClient),
   pictures: pictures(sanityClient),
   siteConfig: siteConfig(sanityClient),
 };
 
 export default sanityApi;
+export { sanityClient }

@@ -1,6 +1,7 @@
+import { logGroq } from "../util/log/logGroq";
 
-export type Picture = {
-  sid: string;
+export type Blog = {
+  content: string;
   type: string;
   dateCreated: string;
   description: string;
@@ -11,15 +12,14 @@ export type Picture = {
   title: string;
 };
 
-const pictures =
+const blogs =
   (sanityApi: any) =>
   async (page = 0, pageCount = 6) => {
     const start = page * pageCount;
     const end = start + pageCount;
-    const groq = /* groq */`
-      *[(_type == "picture") && metadata.isVisible == true]
-      {..., "totalCount": count(*[(_type == "picture") && metadata.isVisible == true]), 
-      "pictureUrl": image.asset->url} 
+    const groq = /* groq */ `
+      *[(_type == "blog")]
+      {..., "totalCount": count(*[(_type == "blog")])} 
       | order(metadata.dateCreated desc)
       [${start}...${end}] 
     `;
@@ -27,4 +27,4 @@ const pictures =
     return results;
   };
 
-export { pictures };
+export { blogs };

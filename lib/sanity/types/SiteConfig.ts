@@ -1,4 +1,4 @@
-import { logGroq } from "../util/logGroq";
+import { logGroq } from "../util/log/logGroq";
 
 export type SiteConfig = {
   imageUrl: string;
