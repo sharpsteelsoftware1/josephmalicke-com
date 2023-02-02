@@ -14,10 +14,7 @@ const blogTsx =
   (sanityBlog: Blog) => {
     const content = isTeaser ? sanityBlog.content[0] : sanityBlog.content;
     return (
-      <div
-        key={sanityBlog._id}
-        className="bg-white p-4 max-w-md mx-auto space-y-4"
-      >
+      <div className="p-4 space-y-4" key={sanityBlog._id}>
         <div className="text-xl font-semibold text-black">
           {sanityBlog.title}
         </div>
