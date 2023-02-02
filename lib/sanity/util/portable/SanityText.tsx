@@ -1,7 +1,8 @@
 import { PortableText } from "@portabletext/react";
+import { PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "../image/urlFor";
 
-const portableImage = {
+const components: PortableTextComponents = {
   types: {
     image: ({ value }: any) => {
       return <img src={urlFor(value).width(200).url()} />;
@@ -10,7 +11,7 @@ const portableImage = {
 };
 
 const SanityText = ({ value }: { value: any }) => (
-  <PortableText value={value} components={portableImage} />
+  <PortableText value={value} components={components} />
 );
 
 export { SanityText };
