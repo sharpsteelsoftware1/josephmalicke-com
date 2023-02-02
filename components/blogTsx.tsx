@@ -1,13 +1,16 @@
+import * as R from "ramda";
 import Link from "next/link";
 import { Blog } from "../lib/sanity/types/Blog";
 import { SanityText } from "../lib/sanity/util/portable/SanityText";
 
-const teaserLink = (slug: string) => (children: any) =>
-  (
-    <Link className="cursor-pointer" href={`/${slug}`}>
-      {children}
-    </Link>
-  );
+const teaserLink =
+  (slug: string) =>
+  (children: any): any =>
+    (
+      <Link className="cursor-pointer" href={`/${slug}`}>
+        {children}
+      </Link>
+    );
 
 const blogTsx =
   (isTeaser = false) =>
@@ -30,6 +33,6 @@ const blogTsx =
 
 const blogFull = (sanityBlog: Blog) => blogTsx(false)(sanityBlog);
 const blogTeaser = (sanityBlog: Blog) =>
-  teaserLink(sanityBlog.slug.current)(blogTsx(true)(sanityBlog));
+  R.pipe(blogTsx(true), teaserLink(sanityBlog.slug.current))(sanityBlog);
 
 export { blogFull, blogTeaser };
