@@ -2,6 +2,7 @@ import * as R from "ramda";
 import Link from "next/link";
 import { Blog } from "../lib/sanity/types/Blog";
 import { SanityText } from "../lib/sanity/util/portable/SanityText";
+import { timeAgo } from "../util/timeAgo";
 
 const teaserLink =
   (slug: string) =>
@@ -25,7 +26,12 @@ const blogTsx =
           <SanityText value={content} />
         </div>
         {isTeaser && (
-          <div className="text-end italic text-red-600">read more</div>
+          <div className="flex flex-row">
+            <div className="text-neutral-500">
+              {timeAgo(new Date(sanityBlog._createdAt))}{" "}
+            </div>
+            <div className="text-end italic text-red-600 grow">read more</div>
+          </div>
         )}
       </div>
     );
