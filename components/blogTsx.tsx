@@ -27,7 +27,7 @@ const blogTsx =
         </div>
         {isTeaser && (
           <div className="flex flex-row">
-            <div className="text-neutral-500">
+            <div className="text-neutral-500 text-md">
               {timeAgo(new Date(sanityBlog._createdAt))}{" "}
             </div>
             <div className="text-end italic text-red-600 grow">read more</div>
