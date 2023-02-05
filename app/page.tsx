@@ -1,9 +1,8 @@
 import * as R from "ramda";
-import { blogTeaser } from "../components/blogTsx";
-import sanityApi from "../lib/sanity";
+import { sanityItems } from "../lib/sanity";
+import { makeJsx } from "../components/feed";
 
 export default async function BlogPage() {
-  const blogs = await sanityApi.blogs();
-  return <>{R.map(blogTeaser)(blogs)}</>;
+  const items = await sanityItems();
+  return <div className="flex flex-col space-y-2">{R.map(makeJsx)(items)}</div>;
 }
- 

@@ -1,5 +1,7 @@
+import * as R from 'ramda'
 import client from "@sanity/client";
 import { blogs } from "./types/Blog";
+import { convertVideo, videos } from "./types/Video";
 
 const sanityClient = client({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -11,7 +13,28 @@ const sanityClient = client({
 
 const sanityApi = {
   blogs: blogs(sanityClient),
+  videos: videos(sanityClient),
+};
+
+const isVideo = (sanityItem: any) => sanityItem._type == 'video'
+const mutate = (sanityItem: any) => {
+  if (isVideo(sanityItem)) return convertVideo(sanityItem)
+  else return sanityItem
+}
+
+const sanityItems = async (page = 0, pageCount = 6) => {
+  const start = page * pageCount;
+  const end = start + pageCount;
+  const groq = /* groq */ `
+      *[(_type == "blog" || _type == "video") && !(_id in path('drafts.**'))]
+      {..., video{asset->}, "totalCount": count(*[(_type == "blog" || _type == "video")])} 
+      | order(_createdAt desc)
+      [${start}...${end}] 
+    `;
+  const rawResults = await sanityClient.fetch(groq);
+  const results = R.map(mutate)(rawResults);
+  return results;
 };
 
 export default sanityApi;
-export { sanityClient }
+export { sanityClient, sanityItems };

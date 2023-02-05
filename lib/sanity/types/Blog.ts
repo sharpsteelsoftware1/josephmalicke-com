@@ -1,6 +1,7 @@
 export type Blog = {
   _id: string;
   _createdAt: string;
+  _type: string;
   content: any[];
   slug: {
     current: string;
@@ -9,7 +10,7 @@ export type Blog = {
 };
 
 const blogs =
-  (sanityApi: any) =>
+  (sanityClient: any) =>
   async (page = 0, pageCount = 6): Promise<Blog[]> => {
     const start = page * pageCount;
     const end = start + pageCount;
@@ -19,7 +20,7 @@ const blogs =
       | order(_createdAt desc)
       [${start}...${end}] 
     `;
-    const results = await sanityApi.fetch(groq);
+    const results = await sanityClient.fetch(groq);
     return results;
   };
 
