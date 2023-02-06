@@ -4,5 +4,5 @@ import { makeJsx } from "../components/feed";
 
 export default async function BlogPage() {
   const items = await sanityItems();
-  return <div className="flex flex-col space-y-2">{R.map(makeJsx(true))(items)}</div>;
+  return <div className="flex flex-col space-y-2">{R.map(makeJsx)(items)}</div>;
 }
