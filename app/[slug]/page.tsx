@@ -1,7 +1,11 @@
 import { sanityItem } from "../../lib/sanity";
 import { makeJsx } from "../../components/feed";
 
-export default async function BlogPage({ params }: { params: any }) {
+export default async function BlogPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const rawItem = await sanityItem(params.slug);
   console.log(
     `Params are ${JSON.stringify(params)} and rawItem is ${JSON.stringify(
