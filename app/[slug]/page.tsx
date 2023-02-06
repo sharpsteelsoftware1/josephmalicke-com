@@ -13,6 +13,6 @@
 import { sanityItem } from "../../lib/sanity";
 import { makeJsx } from "../../components/feed";
 
-export default async function BlogPage({}: {}) {
-  return <div>hello</div>;
+export default async function BlogPage({ params }: { params: any }) {
+  return <div>{JSON.stringify(params, null, 2)}</div>;
 }
