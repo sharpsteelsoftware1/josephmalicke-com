@@ -5,8 +5,7 @@ import { FooterBar } from "../shared/FooterBar";
 import { TeaserLink } from "../shared/TeaserLink";
 
 const blogTsx =
-  (isTeaser = false) =>
-  (sanityBlog: Blog) => {
+  (isTeaser = false, sanityBlog: Blog) => {
     const content = isTeaser ? sanityBlog.content[0] : sanityBlog.content;
     return (
       <div className="p-4 space-y-4 bg-white" key={sanityBlog._id}>
@@ -25,7 +24,7 @@ const blogTsx =
     );
   };
 
-const blogFull = (sanityBlog: Blog) => blogTsx(false)(sanityBlog);
-const blogTeaser = (sanityBlog: Blog) => R.pipe(blogTsx(true))(sanityBlog);
+const blogFull = (sanityBlog: Blog) => blogTsx(false, sanityBlog);
+const blogTeaser = (sanityBlog: Blog) => blogTsx(true, sanityBlog);
 
 export { blogFull, blogTeaser };
