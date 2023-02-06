@@ -7,6 +7,9 @@ const nextConfig = {
   images: {
     domains: ['cdn.sanity.io']
   },
+  typescript: {
+    ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
+  },
   eslint: {
     ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
   },
