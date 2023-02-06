@@ -1,5 +1,5 @@
 import { timeAgo } from "../../../util/timeAgo";
-import { TeaserLink } from "../types/TeaserLink";
+import { TeaserLink } from "./TeaserLink";
 
 const FooterBar = ({
   createdAt,

@@ -1,8 +1,8 @@
 import * as R from "ramda";
-import { Blog } from "../../../../lib/sanity/types/Blog";
-import { SanityText } from "../../../../lib/sanity/util/portable/SanityText";
-import { FooterBar } from "../../shared/FooterBar";
-import { TeaserLink } from "../TeaserLink";
+import { Blog } from "../../../lib/sanity/types/Blog";
+import { SanityText } from "../../../lib/sanity/util/portable/SanityText";
+import { FooterBar } from "../shared/FooterBar";
+import { TeaserLink } from "../shared/TeaserLink";
 
 const blogTsx =
   (isTeaser = false) =>
