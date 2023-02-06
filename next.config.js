@@ -6,7 +6,10 @@ const nextConfig = {
   },
   images: {
     domains: ['cdn.sanity.io']
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
+  },
 }
 
 module.exports = nextConfig
