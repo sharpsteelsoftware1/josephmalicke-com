@@ -3,7 +3,11 @@ import { makeJsx } from "../../components/feed";
 
 export default async function BlogPage({ params }: { params: any }) {
   const rawItem = await sanityItem(params.slug);
-  console.log(JSON.stringify(rawItem, null, 2));
+  console.log(
+    `Params are ${JSON.stringify(params)} and rawItem is ${JSON.stringify(
+      rawItem
+    )}`
+  );
 
   // const component = makeJsx(rawItem);
   // return <>{makeJsx(false)(rawItem)}</>;
