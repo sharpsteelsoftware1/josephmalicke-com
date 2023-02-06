@@ -1,8 +1,12 @@
-import * as R from "ramda";
-import { blogFull } from "../../components/feed/types/blog/blog";
-import sanityApi from "../../lib/sanity";
+import { sanityItem } from "../../lib/sanity";
+import { makeJsx } from "../../components/feed";
 
-export default async function BlogPage() {
-  const blogs = await sanityApi.blogs();
-  return <>{R.map(blogFull)(blogs)}</>;
+export default async function BlogPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const rawItem = await sanityItem(params.slug);
+  // return <>{JSON.stringify(rawItem, null, 2)}</>;
+  return <>{makeJsx(rawItem)}</>;
 }
