@@ -18,3 +18,5 @@ export default async function BlogPage({
   return <div>{JSON.stringify(rawItem, null, 2)}</div>;
   // return component;
 }
+
+export const dynamic = "dynamic-only";
