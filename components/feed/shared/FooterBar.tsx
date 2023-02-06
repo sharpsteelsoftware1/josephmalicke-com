@@ -15,9 +15,9 @@ const FooterBar = ({
       {timeAgo(new Date(createdAt))}
     </div>
     <div className="text-end italic text-red-600 grow">
-      <TeaserLink slug={slug.current}>
-        <span className="italic text-red-600">{label}</span>
-      </TeaserLink>
+      {/* <TeaserLink slug={slug.current}> */}
+      {/* <span className="italic text-red-600">{label}</span> */}
+      {/* </TeaserLink> */}
     </div>
   </div>
 );

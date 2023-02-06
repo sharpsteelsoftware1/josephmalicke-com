@@ -9,11 +9,11 @@ const video = (isTeaser = false, sanityVideo: any) => {
 
   return (
     <div className="p-4 space-y-4 bg-white" key={sanityVideo._id}>
-      <TeaserLink slug={sanityVideo.slug.current}>
-        <div className="text-xl font-semibold text-black">
-          {sanityVideo.title}
-        </div>
-      </TeaserLink>
+      {/* <TeaserLink slug={sanityVideo.slug.current}> */}
+      <div className="text-xl font-semibold text-black">
+        {sanityVideo.title}
+      </div>
+      {/* </TeaserLink> */}
       <VideoPlayer
         playbackId={sanityVideo.playbackId}
         title={sanityVideo.title}
