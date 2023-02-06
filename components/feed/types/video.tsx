@@ -8,7 +8,7 @@ const video = (isTeaser = false, sanityVideo: any) => {
   const footerBarLabel = isTeaser ? "permanent link" : "";
 
   return (
-    <div className="p-4 space-y-4 bg-white">
+    <div className="p-4 space-y-4 bg-white" key={sanityVideo._id}>
       <TeaserLink slug={sanityVideo.slug.current}>
         <div className="text-xl font-semibold text-black">
           {sanityVideo.title}
