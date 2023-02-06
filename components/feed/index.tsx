@@ -15,6 +15,7 @@ import { blogFull, blogTeaser } from "./types/blog";
 import { videoFull, videoTeaser } from "./types/video";
 
 const makeJsx = (sanityItem: any) => {
+  console.log(JSON.stringify(sanityItem, null, 2));
   if (sanityItem._type === "blog") return blogTeaser(sanityItem);
   else return videoTeaser(sanityItem);
 };
