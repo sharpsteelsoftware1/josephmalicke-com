@@ -19,7 +19,6 @@ const video =
         <VideoPlayer
           playbackId={sanityVideo.playbackId}
           title={sanityVideo.title}
-          thumbTime={sanityVideo.thumbTime}
         />
         <FooterBar
           createdAt={sanityVideo._createdAt}

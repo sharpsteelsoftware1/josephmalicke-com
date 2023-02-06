@@ -8,7 +8,7 @@ export type Video = {
   slug: {
     current: string;
   };
-  thumbTime: string;
+  thumbnailUrl: string;
   title: string;
   videoUrl: string;
 };
@@ -26,7 +26,7 @@ const convertVideo = (sanityVideo: any): Video => ({
   playbackId: sanityVideo.video.asset.playbackId,
   slug: sanityVideo.slug,
   title: sanityVideo.title,
-  thumbTime: sanityVideo.thumbTime,
+  thumbnailUrl: thumbnailUrl(sanityVideo.video.asset.data.playback_ids[0].id),
   videoUrl: playbackUrl(sanityVideo.video.asset.data.playback_ids[0].id),
 });
 
