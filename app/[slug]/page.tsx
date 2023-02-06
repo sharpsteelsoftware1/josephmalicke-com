@@ -1,6 +1,6 @@
 import { sanityItem } from "../../lib/sanity";
 import { makeJsx } from "../../components/feed";
-
+export const dynamic = "dynamic-only";
 export default async function BlogPage({
   params,
 }: {
@@ -19,4 +19,3 @@ export default async function BlogPage({
   // return component;
 }
 
-export const dynamic = "dynamic-only";
