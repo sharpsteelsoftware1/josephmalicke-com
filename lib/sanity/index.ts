@@ -33,7 +33,6 @@ const sanityItems = async (page = 0, pageCount = 6) => {
       [${start}...${end}] 
     `;
   const rawResults = await sanityClient.fetch(groq);
-  logGroq(groq)
   const results = R.map(mutate)(rawResults);
   return results;
 };
