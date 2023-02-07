@@ -5,26 +5,25 @@ import { TeaserLink } from "../shared/TeaserLink";
 import { VideoPlayer } from "../../../lib/mux/VideoPlayer";
 
 const video = (isTeaser = false, sanityVideo: any) => {
-  const footerBarLabel = isTeaser ? "permanent link" : "";
-
+  const title = (
+    <div className="text-xl font-semibold text-black">{sanityVideo.title}</div>
+  );
   return (
     <div className="p-4 space-y-4 bg-white" key={sanityVideo._id}>
-      <TeaserLink slug={sanityVideo.slug.current}>
-      <div className="text-xl font-semibold text-black">
-        {sanityVideo.title}
-      </div>
-      </TeaserLink>
+      {isTeaser && (
+        <TeaserLink slug={sanityVideo.slug.current}>{title}</TeaserLink>
+      )}
+      {!isTeaser && title}
       <VideoPlayer
         playbackId={sanityVideo.playbackId}
         title={sanityVideo.title}
         thumbTime={sanityVideo.thumbTime}
       />
-      <div>
-        {sanityVideo.description}
-      </div>
+      <div>{sanityVideo.description}</div>
       <FooterBar
         createdAt={sanityVideo._createdAt}
-        label={footerBarLabel}
+        label="permanent link"
+        showLabel={isTeaser}
         slug={sanityVideo.slug}
       />
     </div>
