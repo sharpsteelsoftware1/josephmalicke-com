@@ -10,15 +10,5 @@ export default async function BlogPage({
   params: { slug: string };
 }) {
   const rawItem = await sanityItem(params.slug);
-  console.log(
-    `Params are ${JSON.stringify(params)} and rawItem is ${JSON.stringify(
-      rawItem
-    )}`
-  );
-
-  const component = makeJsx(rawItem);
-  return <>{makeJsx(rawItem)}</>;
-  // return <div>{JSON.stringify(rawItem, null, 2)}</div>;
-  // return component;
+  return <>{makeJsx(false)(rawItem)}</>;
 }
-
