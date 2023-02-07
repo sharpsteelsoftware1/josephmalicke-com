@@ -16,9 +16,9 @@ export default async function BlogPage({
     )}`
   );
 
-  // const component = makeJsx(rawItem);
-  // return <>{makeJsx(false)(rawItem)}</>;
-  return <div>{JSON.stringify(rawItem, null, 2)}</div>;
+  const component = makeJsx(rawItem);
+  return <>{makeJsx(rawItem)}</>;
+  // return <div>{JSON.stringify(rawItem, null, 2)}</div>;
   // return component;
 }
 
