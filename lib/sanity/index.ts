@@ -2,6 +2,7 @@ import * as R from "ramda";
 import client from "@sanity/client";
 import { blogs } from "./types/Blog";
 import { convertVideo, videos } from "./types/Video";
+import { logGroq } from "./util/log/logGroq";
 
 const sanityClient = client({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -32,6 +33,7 @@ const sanityItems = async (page = 0, pageCount = 6) => {
       [${start}...${end}] 
     `;
   const rawResults = await sanityClient.fetch(groq);
+  logGroq(groq)
   const results = R.map(mutate)(rawResults);
   return results;
 };
