@@ -1,4 +1,7 @@
 import * as R from "ramda";
+import { staticRenditionUrl } from "../../mux/util/staticRenditionUrl";
+import { streamUrl } from "../../mux/util/streamUrl";
+import { thumbnailUrl } from "../../mux/util/thumbnailUrl";
 
 export type Video = {
   _id: string;
@@ -9,16 +12,12 @@ export type Video = {
   slug: {
     current: string;
   };
+  staticRenditionUrl: string;
+  streamUrl: string;
   thumbTime: string;
+  thumbnailUrl: string;
   title: string;
-  videoUrl: string;
 };
-
-const playbackUrl = (playbackId: string) =>
-  `https://stream.mux.com/${playbackId}.m3u8`;
-
-const thumbnailUrl = (playbackId: string) =>
-  `https://image.mux.com/${playbackId}/thumbnail.png`;
 
 const convertVideo = (sanityVideo: any): Video => ({
   _id: sanityVideo._id,
@@ -27,9 +26,11 @@ const convertVideo = (sanityVideo: any): Video => ({
   description: sanityVideo.description,
   playbackId: sanityVideo.video.asset.playbackId,
   slug: sanityVideo.slug,
+  staticRenditionUrl: staticRenditionUrl(sanityVideo.video.asset.playbackId),
   title: sanityVideo.title,
   thumbTime: sanityVideo.thumbTime,
-  videoUrl: playbackUrl(sanityVideo.video.asset.data.playback_ids[0].id),
+  thumbnailUrl: thumbnailUrl(sanityVideo.video.asset.playbackId),
+  streamUrl: streamUrl(sanityVideo.video.asset.data.playback_ids[0].id),
 });
 
 const videos =

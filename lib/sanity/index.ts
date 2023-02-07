@@ -42,9 +42,8 @@ const sanityItem = async (slug: string) => {
       *[(slug.current == "${slug}") && !(_id in path('drafts.**'))]
       {..., video{asset->}, "totalCount": count(*[(slug.current == "${slug}")])} 
     `;
-  logGroq(groq);
+  // logGroq(groq);
   const rawResults = await sanityClient.fetch(groq);
-  console.log(JSON.stringify(rawResults, null, 2));
   const result = R.map(mutate)(rawResults)[0];
   return result;
 };
