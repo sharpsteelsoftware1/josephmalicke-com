@@ -2,6 +2,7 @@ import * as R from "ramda";
 import client from "@sanity/client";
 import { blogs } from "./types/Blog";
 import { convertVideo, videos } from "./types/Video";
+import { logGroq } from "./util/log/logGroq";
 
 const sanityClient = client({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -41,7 +42,9 @@ const sanityItem = async (slug: string) => {
       *[(slug.current == "${slug}") && !(_id in path('drafts.**'))]
       {..., video{asset->}, "totalCount": count(*[(slug.current == "${slug}")])} 
     `;
+  logGroq(groq);
   const rawResults = await sanityClient.fetch(groq);
+  console.log(JSON.stringify(rawResults, null, 2));
   const result = R.map(mutate)(rawResults)[0];
   return result;
 };
