@@ -1,6 +1,8 @@
 import { sanityItem } from "../../lib/sanity";
 import { makeJsx } from "../../components/feed";
-export const dynamic = "dynamic-only";
+
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage({
   params,
 }: {
