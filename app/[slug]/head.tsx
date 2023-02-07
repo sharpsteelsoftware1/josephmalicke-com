@@ -7,6 +7,10 @@ export default async function Head({ params }: { params: { slug: string } }) {
 
   const PAGE_SEO: NextSeoProps = {
     ...SITE_SEO_DEFAULTS,
+    twitter: {
+      cardType: "player",
+
+    },
     openGraph: {
       title: rawItem.title,
       type: "video.episode",
