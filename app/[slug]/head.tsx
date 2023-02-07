@@ -1,9 +1,12 @@
 import { NextSeo, NextSeoProps } from "next-seo";
 import { sanityItem } from "../../lib/sanity";
+import { SITE_SEO_DEFAULTS } from "../head";
 
 export default async function Head({ params }: { params: { slug: string } }) {
   const rawItem = await sanityItem(params.slug);
-  const og: NextSeoProps = {
+
+  const PAGE_SEO: NextSeoProps = {
+    ...SITE_SEO_DEFAULTS,
     openGraph: {
       title: rawItem.title,
       type: "video.episode",
@@ -30,7 +33,7 @@ export default async function Head({ params }: { params: { slug: string } }) {
     <>
       <title>Joseph Malicke</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <NextSeo {...og} useAppDir={true} />
+      <NextSeo {...PAGE_SEO} useAppDir={true} />
     </>
   );
 }

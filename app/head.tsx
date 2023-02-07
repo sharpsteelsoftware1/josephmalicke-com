@@ -1,6 +1,6 @@
 import { NextSeo, NextSeoProps } from "next-seo";
 
-const seo: NextSeoProps = {
+export const SITE_SEO_DEFAULTS: NextSeoProps = {
   title: 'Joseph Malicke',
   description: 'Documenting the traveling blues of Joseph Malicke.'
 }
@@ -11,7 +11,7 @@ export default function Head() {
       <title>Joseph Malicke</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <NextSeo {...seo} useAppDir={true} />
+      <NextSeo {...SITE_SEO_DEFAULTS} useAppDir={true} />
     </>
   );
 }
