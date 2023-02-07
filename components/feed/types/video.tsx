@@ -19,6 +19,9 @@ const video = (isTeaser = false, sanityVideo: any) => {
         title={sanityVideo.title}
         thumbTime={sanityVideo.thumbTime}
       />
+      <div>
+        {sanityVideo.description}
+      </div>
       <FooterBar
         createdAt={sanityVideo._createdAt}
         label={footerBarLabel}

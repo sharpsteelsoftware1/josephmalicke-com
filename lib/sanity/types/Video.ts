@@ -4,6 +4,7 @@ export type Video = {
   _id: string;
   _createdAt: string;
   _type: string;
+  description: string;
   playbackId: string;
   slug: {
     current: string;
@@ -23,6 +24,7 @@ const convertVideo = (sanityVideo: any): Video => ({
   _id: sanityVideo._id,
   _createdAt: sanityVideo._createdAt,
   _type: sanityVideo._type,
+  description: sanityVideo.description,
   playbackId: sanityVideo.video.asset.playbackId,
   slug: sanityVideo.slug,
   title: sanityVideo.title,
