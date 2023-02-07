@@ -1,7 +1,6 @@
 import { NextSeo, NextSeoProps } from "next-seo";
 import { OpenGraphVideo } from "next-seo/lib/types";
 
-const wtf: OpenGraphVideo
 const NEXT_SEO_DEFAULT: NextSeoProps = {
   openGraph: {
     title: "Mux video",
