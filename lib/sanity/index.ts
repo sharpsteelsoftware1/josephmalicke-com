@@ -2,7 +2,6 @@ import * as R from "ramda";
 import client from "@sanity/client";
 import { blogs } from "./types/Blog";
 import { convertVideo, videos } from "./types/Video";
-import { logGroq } from "./util/log/logGroq";
 
 const sanityClient = client({
   projectId: process.env.SANITY_PROJECT_ID,
