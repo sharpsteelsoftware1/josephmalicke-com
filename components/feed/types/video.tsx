@@ -1,4 +1,3 @@
-import * as R from "ramda";
 import { Video } from "../../../lib/sanity/types/Video";
 import { FooterBar } from "../shared/FooterBar";
 import { TeaserLink } from "../shared/TeaserLink";
