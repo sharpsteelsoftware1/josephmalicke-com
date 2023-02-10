@@ -1,5 +1,5 @@
-import { timeAgo } from "../../../util/timeAgo";
 import { TeaserLink } from "./TeaserLink";
+import { TimeAgo } from "./TimeAgo";
 
 const FooterBar = ({
   createdAt,
@@ -14,7 +14,7 @@ const FooterBar = ({
 }) => (
   <div className="flex flex-row">
     <div className="text-neutral-500 text-md">
-      {timeAgo(new Date(createdAt))}
+      <TimeAgo createdAt={createdAt} />
     </div>
     <div className="text-end italic text-red-600 grow">
       {showLabel && (
