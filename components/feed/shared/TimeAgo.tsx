@@ -1,4 +1,6 @@
 "use client";
+import "client-only";
+
 import TimeAgoApi from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 

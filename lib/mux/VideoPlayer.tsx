@@ -1,4 +1,6 @@
 "use client";
+import "client-only";
+
 import MuxPlayer from "@mux/mux-player-react";
 
 const VideoPlayer = ({
