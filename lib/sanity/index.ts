@@ -39,7 +39,7 @@ const sanityItems = async (page = 0, pageCount = 6) => {
 
 const sanityItem = async (slug: string) => {
   const groq = /* groq */ `
-      *[(slug.current == "${slug}"))]
+      *[(slug.current == "${slug}")]
       {..., video{asset->}, "totalCount": count(*[(slug.current == "${slug}")])} 
     `;
   // logGroq(groq);
